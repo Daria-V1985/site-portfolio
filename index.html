@@ -8,14 +8,16 @@
 
 	<title>Персональный сайт Web-разработчика</title>
 
-
    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-   <link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen">
-   <link href="assets/css/simple-line-icons.css" rel="stylesheet" media="screen">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen">
+	<link href="assets/css/simple-line-icons.css" rel="stylesheet" media="screen">
    <link href="assets/css/animate.css" rel="stylesheet">
-   <link href="assets/css/style.css" rel="stylesheet" media="screen">
+	<link href="assets/css/style.css" rel="stylesheet" media="screen">
    <link href="assets/css/lightcase.css" rel="stylesheet" type="text/css">
-   
+   <link rel="icon" href="favicon.png" sizes="32x32">
+   <link rel="icon" href="favicon.png" sizes="192x192">
+   <link rel="apple-touch-icon" href="favicon.png">
+
    <!-- Yandex.Metrika counter -->
    <script type="text/javascript">
       (function (m, e, t, r, i, k, a) {
@@ -34,7 +36,6 @@
       <div><img src="https://mc.yandex.ru/watch/69470497" style="position:absolute; left:-9999px;" alt="" /></div>
    </noscript>
    <!-- /Yandex.Metrika counter -->
-	
 </head>
 <body>
 
@@ -47,14 +48,14 @@
 		<div class="intro">
 			<div class="start">Здравствуйте, меня зовут Дарья.</div>
 			<h1>Я &rarr; Web-разработчик</h1>
-			<div class="start">Люблю изучать и создавать что-то новое.</div>
+			<div class="start">Люблю изучать и создавать что-то новое. Для меня программирование это не просто трудовой процесс, но ещё и творчество.</div>
 		</div>
 
         <a href="#services">
 		<div class="scroll-down">
             <span>
                <i class="fa fa-angle-double-down fa-lg"></i>
-            </span-->
+            </span>
 		</div>
         </a>
 
@@ -216,6 +217,24 @@
                   </a>
                </div>
    
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-4">
+            
+               <div class="grid wow zoomIn">
+                  <a class="lightcase" href="assets/images/darfolio.png"
+                     data-lc-caption="Полностью адаптивная версия сайта портфолио, свёрстанного с использованием фреймворка Bootstrap 4. При написании кода были использованы такие технологии, как: анимации и всплывающие подсказки. Сайт полностью написан мной."
+                     data-rel="lightcase">
+                     <figure class="effect-bubba">
+                        <img src="assets/images/darfolio.png" alt="DarFolio" />
+                        <figcaption>
+                           <h2><span>DarFolio</span></h2>
+                           <p>Сайт портфолио</p>
+                        </figcaption>
+                     </figure>
+                  </a>
+               </div>
+            
             </div>
    
             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -476,9 +495,9 @@
                            placeholder="Текст сообщения..."></textarea>
                      </div>
                
-                     <button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Отправить сообщение</button>
+                     <button type="button" id="btn" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Отправить сообщение</button>
                   </div>
-                  <div class="ajax-response"></div>
+                  <div id="errorMess" class="ajax-response"></div>
                </form>
    
             </div>
@@ -495,8 +514,8 @@
 
 					<ul class="social-links">
                   <li><a href="mailto:darja.vol4kova@yandex.ru" class="wow fadeInUp" target="_blank"><i class="fa fa-envelope"></i></a></li>
-						<li><a href="tel:+79006415855" class="wow fadeInUp" data-wow-delay=".1s"><i class="fa fa-phone"></i></a></li>
-						<li><a href=" https://wa.me/79120374755" class="wow fadeInUp" data-wow-delay=".2s" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+						<li><a href="https://spb.hh.ru/resume/9e96035cff00e8cb000039ed1f4e4a63637747" class="wow fadeInUp font" data-wow-delay=".1s" target="_blank"><b>hh</b></a></li>
+						<li><a href=" https://wa.me/79006415855" class="wow fadeInUp" data-wow-delay=".2s" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
 						<li><a href="https://github.com/Daria-V1985" class="wow fadeInUp" data-wow-delay=".4s" target="_blank"><i class="fa fa-github"></i></a></li>
 					</ul>
 
@@ -527,6 +546,7 @@
    <script src="assets/js/jquery.cbpQTRotator.js"></script>
    <script src="assets/js/custom.js"></script>
    <script src="assets/js/lightcase.js"></script>
+   <script src="assets/js/backform.js"></script>
 
 
 <script type="text/javascript">
