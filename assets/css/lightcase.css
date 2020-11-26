@@ -367,7 +367,7 @@ html[data-lc-type=image] #lightcase-content .lightcase-contentInner {
 #lightcase-info:hover,
 #lightcase-info #lightcase-title:hover,
 #lightcase-info #lightcase-caption:hover {
-  background-color:rgba(27, 16, 32, 0.76);
+  background-color: #0a3939b3;
   opacity:1;
   transition: opacity 1.5s;
 }

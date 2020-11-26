@@ -129,44 +129,88 @@
 		};
 
 		/* ---------------------------------------------- /*
-		 * Contact form ajax
+		 * Contact form ajax (Russian)
 		/* ---------------------------------------------- */
 
-		$('#contact-form').submit(function(e) {
+      $("#btn").on("click", function () {
+         var name = $("#name").val().trim();
+         var email = $("#email").val().trim();
+         var message = $("#message").val().trim();
 
-			e.preventDefault();
+         if(name == "") {
+            $("#errorMess").text("Введите имя!");
+            return false;
+         } else if(email == "") {
+            $("#errorMess").text("Введите email!");
+            return false;
+         } else if (message == "") {
+            $("#errorMess").text("Введите сообщение!");
+            return false;
+         }
 
-			var c_name = $('#c_name').val();
-			var c_email = $('#c_email').val();
-			var c_message = $('#c_message ').val();
-			var response = $('#contact-form .ajax-response');
-			
-			var formData = {
-				'name'       : c_name,
-				'email'      : c_email,
-				'message'    : c_message
-			};
+         $("#errorMess").text("Спасибо, сообщение отправлено!");
 
-			if (( c_name== '' || c_email == '' || c_message == '') || (!isValidEmailAddress(c_email) )) {
-				response.fadeIn(500);
-				response.html('<i class="fa fa-warning"></i> Please fix the errors and try again.');
-			}
+         $.ajax ({
+            url: '../assets/php/contact.php',
+            type: 'POST',
+            cache: false,
+            data: {'name': name, 'email': email, 'message': message},
+            dataType: 'html',
+            beforeSend: function () {
+               $("#btn").prop("disabled", true);
+            },
+            success: function (data) {
+               if(!data)
+                  alert("Были ошибки, сообщение не отправлено!");
+               else 
+                  $("#contact-form").trigger("reset");
 
-			else {
-					 $.ajax({
-							type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-							url         : 'assets/php/contact.php', // the url where we want to POST
-							data        : formData, // our data object
-							dataType    : 'json', // what type of data do we expect back from the server
-							encode      : true,
-							success		: function(res){
-											var ret = $.parseJSON(JSON.stringify(res));
-											response.html(ret.message).fadeIn(500);
-							}
-						});
-				}           
-            	return false;
-			});
+               $("#btn").prop("disabled", false);
+            }
+         });
+      });
+
+      /* ---------------------------------------------- /*
+      * Contact form ajax (English)
+      /* ---------------------------------------------- */
+
+      $("#btn_e").on("click", function () {
+         var name = $("#name_e").val().trim();
+         var email = $("#email_e").val().trim();
+         var message = $("#message_e").val().trim();
+
+         if (name == "") {
+            $("#errorMess_e").text("Enter your name!");
+            return false;
+         } else if (email == "") {
+            $("#errorMess_e").text("Enter your email!");
+            return false;
+         } else if (message == "") {
+            $("#errorMess_e").text("Enter your message!");
+            return false;
+         }
+
+         $("#errorMess_e").text("Thanks, your message to sent!");
+
+         $.ajax({
+            url: '../assets/php/contact_1.php',
+            type: 'POST',
+            cache: false,
+            data: { 'name_e': name_e, 'email_e': email_e, 'message_e': message_e },
+            dataType: 'html',
+            beforeSend: function () {
+               $("#btn_e").prop("disabled", true);
+            },
+            success: function (data) {
+               if (!data)
+                  alert("Error, message not sent!");
+               else
+                  $("#contact-form_e").trigger("reset");
+
+               $("#btn_e").prop("disabled", false);
+            }
+         });
+      });
 
 	});
 

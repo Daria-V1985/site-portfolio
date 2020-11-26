@@ -1,33 +1,13 @@
 <?php
 
-if(isset($_POST['message'])){
-
-	$name = $_POST['name'];
+   $name = $_POST['name'];
 	$email = $_POST['email'];
-	$message = $_POST['message'];
-    
-	
-	$to      = 'you@example.com';
-	$subject = 'Site Contact Form';
+   $message = $_POST['message'];
 
-	$headers = 'From: '. $email . "\r\n" .
-    'Reply-To: '. $email . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-
-	$status = mail($to, $subject, $message, $headers);
-
-	if($status == TRUE){	
-		$res['sendstatus'] = 'done';
-	
-		//Edit your message here
-		$res['message'] = 'Form Submission Successful';
-    }
-	else{
-		$res['message'] = 'Failed to send mail. Please mail me to you@example.com';
-	}
-	
-	
-	echo json_encode($res);
-}
+   $subject = "=?utf-8?B?".base64_encode("Сообщение с сайта darfolio.ru")."?=";
+   $headers = "From: $email\r\nReply-to: $email\r\nContent-type: text/html;  charset=utf-8\r\n";
+   
+   $success = mail("darja.vol4kova@yandex.ru", $subject, $message, $headers);
+   echo $success;
 
 ?>
